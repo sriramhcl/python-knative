@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - image: sriramhcl/python-tekton-hello-world:latest
-          imagePullPolicy:Never
+          imagePullPolicy: Never
           env:
             - name: TARGET
               value: "Python Sample v1"
