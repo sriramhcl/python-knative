@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:latest
+    args: ["--dockerfile=Dockerfile",
+            "--context=dir://.",
+            "--destination=docker.io/sriramhcl/kanikotest"] 
+    volumeMounts:
+      - name: dlib
+        mountPath: /var/lib/docker
+  restartPolicy: Never
+  volumes:
+    - name: dlib
+      persistentVolumeClaim:
+        claimName: dlib-vol-claim

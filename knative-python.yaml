@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: sriramhcl/python-tekton-hello-world:latest
+        - image: sriramhcl/python-tekton-flaksapp
           imagePullPolicy: Never
           env:
             - name: TARGET
