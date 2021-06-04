@@ -11,4 +11,4 @@ spec:
           imagePullPolicy: Never
           env:
             - name: TARGET
-              value: "Python Sample v1"
+              value: "Python Flask Sample v1"
