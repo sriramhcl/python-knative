@@ -7,8 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: sriramhcl/python-tekton-flaksapp
-          imagePullPolicy: Never
+        - image: sriramhcl/python-tekton-flaksapp-2
           env:
             - name: TARGET
               value: "Python Flask Sample v1"
