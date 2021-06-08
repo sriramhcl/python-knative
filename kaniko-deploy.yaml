@@ -6,14 +6,16 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
-    args: ["--dockerfile=Dockerfile",
-            "--context=dir://.",
-            "--destination=docker.io/sriramhcl/kanikotest"] 
+    args: [ "--context=git://github.com/sriramhcl/python-knative",
+            "--destination=docker.io/sriramhcl/kaniko-python"] 
     volumeMounts:
-      - name: dlib
-        mountPath: /var/lib/docker
+      - name: kaniko-secret
+        mountPath: /kaniko/.docker
   restartPolicy: Never
   volumes:
-    - name: dlib
-      persistentVolumeClaim:
-        claimName: dlib-vol-claim
+    - name: kaniko-secret
+      secret:
+        secretName: container-registry-secret
+        items:
+          - key: .dockerconfigjson
+            path: config.json

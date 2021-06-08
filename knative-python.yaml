@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: docker.io/sriramhcl/python-tekton-flaksapp
+        - image: docker.io/sriramhcl/mypython-private-app
           env:
             - name: TARGET
               value: "Python Sample v1"
